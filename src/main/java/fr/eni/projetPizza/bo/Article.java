@@ -2,19 +2,33 @@ package fr.eni.projetPizza.bo;
 
 public class Article {
 	private int idArticle;
-	private String nomArticle;
-	private int prixArticle;
+	private String nom;
+	private int prix;
+	private TypeArticle typeArticle;
+	private String taille;
+	
+	public Article() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Article(String nomArticle) {
 		super();
-		this.nomArticle = nomArticle;
+		this.nom = nomArticle;
 	}
+
+	public Article( String nomArticle, int prixArticle) {
+		super();
+		this.nom = nomArticle;
+		this.prix = prixArticle;
+	}
+
 	
-	public Article(int idArticle, String nomArticle, int prixArticle) {
+	public Article(int idArticle, String nomArticle, int prixArticle, String taille) {
 		super();
 		this.idArticle = idArticle;
-		this.nomArticle = nomArticle;
-		this.prixArticle = prixArticle;
+		this.nom = nomArticle;
+		this.prix = prixArticle;
+		this.taille = taille;
 	}
 
 	public int getIdArticle() {
@@ -25,20 +39,42 @@ public class Article {
 		this.idArticle = idArticle;
 	}
 
-	public String getNomArticle() {
-		return nomArticle;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setNomArticle(String nomArticle) {
-		this.nomArticle = nomArticle;
+	public void setNom(String nomArticle) {
+		this.nom = nomArticle;
 	}
 
-	public int getPrixArticle() {
-		return prixArticle;
+	public int getPrix() {
+		return prix;
 	}
 
-	public void setPrixArticle(int prixArticle) {
-		this.prixArticle = prixArticle;
+	public void setPrix(int prixArticle) {
+		this.prix = prixArticle;
+	}
+
+	public TypeArticle getTypeArticle() {
+		return typeArticle;
+	}
+
+	public void setTypeArticle(TypeArticle typeArticle) {
+		this.typeArticle = typeArticle;
+	}
+
+	public String getTaille() {
+		return taille;
+	}
+
+	public void setTaille(String taille) {
+		this.taille = taille;
+	}
+
+	@Override
+	public String toString() {
+		return "Article [idArticle=" + idArticle + ", nomArticle=" + nom + ", prixArticle=" + prix
+				+ ", typePlat=" + typeArticle + ", taille=" + taille + "]";
 	}
 	
 }

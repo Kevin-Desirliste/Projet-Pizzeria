@@ -1,10 +1,10 @@
 package fr.eni.projetPizza.bo;
 
-public class Table {
+public class EtatCommande {
 	private int idTable;
 	private String libelleTable;
 	
-	public Table(int idTable, String libelleTable) {
+	public EtatCommande(int idTable, String libelleTable) {
 		super();
 		this.idTable = idTable;
 		this.libelleTable = libelleTable;
@@ -26,7 +26,7 @@ public class Table {
 		this.libelleTable = libelleTable;
 	}
 
-	public void add(Table table) {
+	public void add(EtatCommande table) {
 		// TODO Auto-generated method stub
 		
 	}

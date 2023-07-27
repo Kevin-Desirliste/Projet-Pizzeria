@@ -13,9 +13,12 @@
         </tr>
         <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
         <!-- Assurez-vous que "tables" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
-        <tr th:each="table : ${tables}">
-            <td th:text="${table.id}"></td>
-            <td th:text="${table.libelle}"></td>
+        <tr th:each="article : ${articles}">
+            <td th:text="${article.idArticle}"></td>
+            <td th:text="${article.nom}"></td>
+            <td th:text="${article.taille}"></td>
+            <td th:text="${article.prix}"></td>
+            <td><a th:href="@{/article(id=${article.idArticle})}">Supprimer</a></td>
         </tr>
     </table>
 </body>

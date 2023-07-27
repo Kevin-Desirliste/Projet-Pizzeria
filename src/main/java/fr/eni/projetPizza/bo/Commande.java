@@ -4,16 +4,36 @@ import java.time.LocalDate;
 
 public class Commande {
 	private int idCommande;
-	private String statutCommande;
+	private EtatCommande statutCommande;
 	private LocalDate heureCommande;
 	private int total;
+	private int noTable;
 	
-	public Commande(int idCommande, String statutCommande, LocalDate heureCommande, int total) {
+	public Commande() {
+	}
+	
+	public Commande( EtatCommande statutCommande, LocalDate heureCommande,  int noTable) {
+		super();
+		this.statutCommande = statutCommande;
+		this.heureCommande = heureCommande;
+		this.noTable = noTable;
+	}
+
+	
+	public Commande(int idCommande, EtatCommande statutCommande, LocalDate heureCommande,  int noTable) {
 		super();
 		this.idCommande = idCommande;
 		this.statutCommande = statutCommande;
 		this.heureCommande = heureCommande;
-		this.total = total;
+		this.noTable = noTable;
+	}
+
+	public Commande(int idCommande, EtatCommande statutCommande, LocalDate heureCommande) {
+		super();
+		this.idCommande = idCommande;
+		this.statutCommande = statutCommande;
+		this.heureCommande = heureCommande;
+
 	}
 
 	public int getIdCommande() {
@@ -24,11 +44,11 @@ public class Commande {
 		this.idCommande = idCommande;
 	}
 
-	public String getStatutCommande() {
+	public EtatCommande getStatutCommande() {
 		return statutCommande;
 	}
 
-	public void setStatutCommande(String statutCommande) {
+	public void setStatutCommande(EtatCommande statutCommande) {
 		this.statutCommande = statutCommande;
 	}
 
@@ -46,6 +66,14 @@ public class Commande {
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+
+	public int getNoTable() {
+		return noTable;
+	}
+
+	public void setNoTable(int noTable) {
+		this.noTable = noTable;
 	}
 	
 }
