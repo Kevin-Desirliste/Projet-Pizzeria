@@ -12,4 +12,10 @@ import fr.eni.projetPizza.exception.DALException;
 
 public class ArticleDAOJdbcImpl implements ArticleDAO {	
 
+	@Override
+	public void insert(Article article) throws DALException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
