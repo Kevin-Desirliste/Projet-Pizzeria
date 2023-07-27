@@ -25,5 +25,10 @@ public class Table {
 	public void setLibelleTable(String libelleTable) {
 		this.libelleTable = libelleTable;
 	}
+
+	public void add(Table table) {
+		// TODO Auto-generated method stub
+		
+	}
 		
 }
