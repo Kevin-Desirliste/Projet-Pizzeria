@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #555;
+    padding: 10px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+nav a:hover {
+    background-color: #777;
+}
+.banner {
+    background-image: url("https://img.freepik.com/photos-gratuite/vue-dessus-pizza-au-pepperoni-saucisses-aux-champignons-poivron-olive-mais-bois-noir_141793-2158.jpg?w=2000"); /* Remplacez par l'URL de votre image de bannière */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 32px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.content {
+    padding: 50px;
+    text-align: center;
+}
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.content a {
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+.content a:hover {
+    background-color: #e53935;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

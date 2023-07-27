@@ -5,6 +5,6 @@ import fr.eni.projetPizza.exception.DALException;
 
 public interface ArticleDAO {
 
-	public void insert(Article article, int shoppingListId) throws DALException;
+	public void insert(Article article) throws DALException;
 	
 }
