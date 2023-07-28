@@ -1,4 +1,4 @@
-package fr.eni.projetPizza.Controller;
+package fr.eni.projetPizza.controller;
 
 import java.util.List;
 
