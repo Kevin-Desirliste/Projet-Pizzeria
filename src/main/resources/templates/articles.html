@@ -2,24 +2,84 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Tables</title>
+    <title>Articles</title>
+    <link rel="stylesheet" href="Article.css"> <!-- Lien vers le fichier CSS externe -->
 </head>
-<body>
-    <h1>Tables</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Libelle</th>
-        </tr>
-        <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
-        <!-- Assurez-vous que "tables" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
-        <tr th:each="article : ${articles}">
-            <td th:text="${article.idArticle}"></td>
-            <td th:text="${article.nom}"></td>
-            <td th:text="${article.taille}"></td>
-            <td th:text="${article.prix}"></td>
-            <td><a th:href="@{/article(id=${article.idArticle})}">Supprimer</a></td>
-        </tr>
-    </table>
+<form action="/articles" method="post">
+    <h1>Articles</h1>
+
+    <div class="menu-container">
+        <!-- Table pour les entrées -->
+
+        <h2>Entrées</h2>
+        <table class="menu-table">
+            <tr>
+                <th>Libellé</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+            </tr>
+            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
+            <!-- Assurez-vous que "entrees" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
+            <tr th:each="entree : ${entrees}">
+                <td th:text="${entree.nom}"></td>
+                <td th:text="${entree.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td>
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                </td>
+            </tr>
+        </table>
+
+        <!-- Table pour les plats -->
+        <h2>Plats</h2>
+        <table class="menu-table">
+            <tr>
+                <th>Libellé</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+            </tr>
+            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
+            <!-- Assurez-vous que "plats" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
+            <tr th:each="plat : ${plats}">
+                <td th:text="${plat.nom}"></td>
+                <td th:text="${plat.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td>
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                </td>
+            </tr>
+        </table>
+
+        <!-- Table pour les desserts -->
+        <h2>Desserts</h2>
+        <table class="menu-table">
+            <tr>
+                <th>Libellé</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+            </tr>
+            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
+            <!-- Assurez-vous que "desserts" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
+            <tr th:each="dessert : ${desserts}">
+                <td th:text="${dessert.nom}"></td>
+                <td th:text="${dessert.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td>
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Récapitulatif des articles ajoutés -->
+    <div class="recap-container">
+        <h2>Récapitulatif</h2>
+        <div class="recap-screen" id="recap-screen">
+            <ul id="recap-list">
+                <!-- Ici, nous allons ajouter dynamiquement les articles ajoutés -->
+            </ul>
+        </div>
+    </div>
+
+    <button type="submit" class="valider-button">Valider la commande</button>
+    </form>
+    
 </body>
 </html>

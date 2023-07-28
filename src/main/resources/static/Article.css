@@ -1,0 +1,88 @@
+/* Style général de la page */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+/* Style des conteneurs */
+.menu-container {
+    display: inline-block;
+    margin-right: 50px;
+    vertical-align: top;
+}
+
+.recap-container {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Style du tableau */
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Style des champs de quantité */
+input[type="number"] {
+    width: 40px;
+    text-align: center;
+}
+
+/* Style du bouton "Valider la commande" */
+.valider-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.valider-button:hover {
+    background-color: #45a049;
+}
+
+/* Style du récapitulatif */
+#recap-list {
+    list-style: none;
+    padding: 0;
+}
+.recap-screen {
+    display: none;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}

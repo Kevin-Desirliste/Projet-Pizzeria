@@ -1,29 +1,29 @@
 package fr.eni.projetPizza.bo;
 
 public class EtatCommande {
-	private int idTable;
-	private String libelleTable;
+	private int idEtatCommande;
+	private String libelle;
 	
-	public EtatCommande(int idTable, String libelleTable) {
+	public EtatCommande(int idEtatCommande, String libelle) {
 		super();
-		this.idTable = idTable;
-		this.libelleTable = libelleTable;
+		this.idEtatCommande = idEtatCommande;
+		this.libelle = libelle;
 	}
 
-	public int getIdTable() {
-		return idTable;
+	public int getidEtatCommande() {
+		return idEtatCommande;
 	}
 
-	public void setIdTable(int idTable) {
-		this.idTable = idTable;
+	public void setId_etat_commande(int idEtatCommande) {
+		this.idEtatCommande = idEtatCommande;
 	}
 
-	public String getLibelleTable() {
-		return libelleTable;
+	public String getLibelle() {
+		return libelle;
 	}
 
-	public void setLibelleTable(String libelleTable) {
-		this.libelleTable = libelleTable;
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
 	}
 
 	public void add(EtatCommande table) {

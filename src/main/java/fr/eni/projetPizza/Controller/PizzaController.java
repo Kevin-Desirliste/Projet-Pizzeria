@@ -1,14 +1,19 @@
 package fr.eni.projetPizza.Controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.eni.demoCouches.bo.User;
 import fr.eni.projetPizza.bll.ArticleManager;
 import fr.eni.projetPizza.bo.Article;
+import fr.eni.projetPizza.bo.Commande;
 import fr.eni.projetPizza.dal.ArticleDAO;
 
 @Controller
@@ -29,21 +34,57 @@ public class PizzaController {
         return "Accueil"; // renvoie à un fichier de vue nommé "Accueil.html" 
     }
 
-//    @GetMapping("/Table")
-//    public String afficherTable() {
-//        return "Table"; // renvoie à un fichier de vue nommé "Table.html"
-//    }
-//    
+    @GetMapping("/test")
+    public String test()
+    {
+    	return "test";
+    }
+
+    @PostMapping("/test")
+    public String traitementPosttest(@RequestParam int[] idProduits)
+    {
+    	System.out.println("idProduits: " + idProduits);
+    	for(int i: idProduits) {
+    		System.out.println();
+    	}
+    	return "test";
+    }
+
+    
     @GetMapping("/articles")
     public String afficherArticles(Model model) {
         try 
         {
-            List<Article> articles = articleManager.selectArticles();  // Récupérer les données de la table "Table" depuis la base de données
-            model.addAttribute("articles", articles);  // Ajouter les données à un modèle (Model) pour les transmettre à la vue (HTML)
+//            List<Article> articles = articleManager.selectArticles();  // Récupérer les données de la table "Table" depuis la base de données
+//            model.addAttribute("articles", articles);  // Ajouter les données à un modèle (Model) pour les transmettre à la vue (HTML)
+            List<Article> entree = articleManager.selectEntree(); 
+            model.addAttribute("entrees", entree);
+            
+            List<Article> plat = articleManager.selectPlat(); 
+            model.addAttribute("plats", plat);
+            
+            List<Article> dessert = articleManager.selectDessert(); 
+            model.addAttribute("desserts", dessert);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "articles";         // Renvoyer le nom de la vue "Table.html" pour l'affichage
+        return "articles"; 
+    }
+    
+//    @PostMapping("/articles")
+//    public String traitementPostArticles(@RequestParam int[] quantite)
+//    {
+//    	//System.out.println("quantite: " + Arrays.toString(quantite));
+//    	for(int i: quantite) {
+//    		System.out.println(i);
+//    	}
+//    	return "articles";
+//    }
+    @PostMapping("/articles")
+    public String traitementPostArticles(Commande commande) {
+    	this.articleManager.InsertCommande(commande);
+		return "articles";
     }
 	
 	@GetMapping("/Connexion")

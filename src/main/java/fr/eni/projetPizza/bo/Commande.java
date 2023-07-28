@@ -1,39 +1,54 @@
 package fr.eni.projetPizza.bo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Commande {
 	private int idCommande;
 	private EtatCommande statutCommande;
-	private LocalDate heureCommande;
+	private LocalDateTime heureCommande;
 	private int total;
 	private int noTable;
+	private List<LigneCommande> lignesCommande;
 	
 	public Commande() {
+		super();
+		this.lignesCommande = new ArrayList<>();
 	}
 	
-	public Commande( EtatCommande statutCommande, LocalDate heureCommande,  int noTable) {
-		super();
+	public Commande(int idCommande) {
+		this();
+		this.idCommande = idCommande;
+	}
+
+	public Commande( EtatCommande statutCommande, LocalDateTime heureCommande,  int noTable) {
+		this();
 		this.statutCommande = statutCommande;
 		this.heureCommande = heureCommande;
 		this.noTable = noTable;
 	}
 
 	
-	public Commande(int idCommande, EtatCommande statutCommande, LocalDate heureCommande,  int noTable) {
-		super();
+	public Commande(int idCommande, EtatCommande statutCommande, LocalDateTime heureCommande,  int noTable) {
+		this();
 		this.idCommande = idCommande;
 		this.statutCommande = statutCommande;
 		this.heureCommande = heureCommande;
 		this.noTable = noTable;
 	}
 
-	public Commande(int idCommande, EtatCommande statutCommande, LocalDate heureCommande) {
-		super();
+	public Commande(int idCommande, EtatCommande statutCommande, LocalDateTime heureCommande) {
+		this();
 		this.idCommande = idCommande;
 		this.statutCommande = statutCommande;
 		this.heureCommande = heureCommande;
 
+	}
+	
+	public void ajouterLigneCommande(LigneCommande ligne) {
+		this.lignesCommande.add(ligne);
 	}
 
 	public int getIdCommande() {
@@ -52,11 +67,11 @@ public class Commande {
 		this.statutCommande = statutCommande;
 	}
 
-	public LocalDate getHeureCommande() {
+	public LocalDateTime getHeureCommande() {
 		return heureCommande;
 	}
 
-	public void setHeureCommande(LocalDate heureCommande) {
+	public void setHeureCommande(LocalDateTime heureCommande) {
 		this.heureCommande = heureCommande;
 	}
 
@@ -74,6 +89,10 @@ public class Commande {
 
 	public void setNoTable(int noTable) {
 		this.noTable = noTable;
+	}
+
+	public List<LigneCommande> getLignesCommande() {
+		return lignesCommande;
 	}
 	
 }

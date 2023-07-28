@@ -31,6 +31,16 @@ public class Article {
 		this.taille = taille;
 	}
 
+	public Article(int idArticle, String nomArticle, int prixArticle, String taille, TypeArticle TypeArticle) {
+		super();
+		this.idArticle = idArticle;
+		this.nom = nomArticle;
+		this.prix = prixArticle;
+		this.taille = taille;
+		this.typeArticle = typeArticle;
+	}
+
+	
 	public int getIdArticle() {
 		return idArticle;
 	}
