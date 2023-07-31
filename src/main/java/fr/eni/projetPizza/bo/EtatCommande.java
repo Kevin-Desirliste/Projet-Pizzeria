@@ -4,6 +4,11 @@ public class EtatCommande {
 	private int idEtatCommande;
 	private String libelle;
 	
+	
+	public EtatCommande() {
+
+	}
+	
 	public EtatCommande(int idEtatCommande, String libelle) {
 		super();
 		this.idEtatCommande = idEtatCommande;

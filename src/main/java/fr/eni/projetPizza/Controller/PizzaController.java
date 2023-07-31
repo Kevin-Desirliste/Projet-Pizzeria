@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.eni.projetPizza.bll.ArticleManager;
 import fr.eni.projetPizza.bo.Article;
 import fr.eni.projetPizza.bo.Commande;
+import fr.eni.projetPizza.bo.EtatCommande;
+import fr.eni.projetPizza.bo.LigneCommande;
 import fr.eni.projetPizza.dal.ArticleDAO;
 
 @Controller
@@ -53,21 +55,34 @@ public class PizzaController {
         }
         return "articles"; 
     }
-    
-//    @PostMapping("/articles")
-//    public String traitementPostArticles(@RequestParam int[] quantite)
-//    {
-//    	//System.out.println("quantite: " + Arrays.toString(quantite));
-//    	for(int i: quantite) {
-//    		System.out.println(i);
-//    	}
-//    	return "articles";
-//    }
-    
+
     @PostMapping("/articles")
-    public String traitementPostArticles(Commande commande) {
-    	this.articleManager.InsertCommande(commande);
-		return "articles";
+    public String traitementPostArticles(@RequestParam int[] quantite, @RequestParam int NoTable, @RequestParam int[] idArticle, Commande commande) {
+
+        int totalCommande = 0;
+
+        for (int i = 0; i < quantite.length; i++) {
+            if (quantite[i] > 0) {
+                Article article = this.articleManager.getArticleById(idArticle[i]);
+                totalCommande += article.getPrix() * quantite[i];
+                
+                LigneCommande ligneCommande = new LigneCommande();
+                ligneCommande.setArticle(article);
+                ligneCommande.setQuantite(quantite[i]);
+
+                commande.ajouterLigneCommande(ligneCommande);
+            }
+        }
+
+        commande.setNoTable(NoTable);
+        EtatCommande statutCommande = new EtatCommande();
+        statutCommande.setId_etat_commande(1);
+        commande.setStatutCommande(statutCommande);
+        commande.setTotal(totalCommande);
+
+        this.articleManager.InsertCommande(commande);
+
+        return "articles";
     }
 	
 	@GetMapping("/Connexion")

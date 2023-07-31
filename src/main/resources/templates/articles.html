@@ -14,15 +14,22 @@
         <h2>Entrées</h2>
         <table class="menu-table">
             <tr>
+				<th>Id</th>
                 <th>Libellé</th>
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
             <tr th:each="entree : ${entrees}">
+				<td th:text="${entree.idArticle}"></td>
                 <td th:text="${entree.nom}"></td>
                 <td th:text="${entree.prix} + ' €'"></td>
                 <td>
+<<<<<<< HEAD
                     <input type="number" name="quantite" min="0" value="0" />
+=======
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="hidden" name="idArticle" th:value="${entree.idArticle}"/>
+>>>>>>> 671d83c8731a2fd261a63acff48fea76f94e24ba
                 </td>
             </tr>
         </table>
@@ -31,15 +38,22 @@
         <h2>Plats</h2>
         <table class="menu-table">
             <tr>
+				<th>Id</th>
                 <th>Libellé</th>
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
             <tr th:each="plat : ${plats}">
+				<td th:text="${plat.idArticle}"></td>
                 <td th:text="${plat.nom}"></td>
                 <td th:text="${plat.prix} + ' €'"></td>
                 <td>
+<<<<<<< HEAD
                     <input type="number" name="quantite" min="0" value="0" />
+=======
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="hidden" name="idArticle" th:value="${plat.idArticle}"/>
+>>>>>>> 671d83c8731a2fd261a63acff48fea76f94e24ba
                 </td>
             </tr>
         </table>
@@ -48,18 +62,29 @@
         <h2>Desserts</h2>
         <table class="menu-table">
             <tr>
+				<th>Id</th>
                 <th>Libellé</th>
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
             <tr th:each="dessert : ${desserts}">
+				<td th:text="${dessert.idArticle}"></td>
                 <td th:text="${dessert.nom}"></td>
                 <td th:text="${dessert.prix} + ' €'"></td>
                 <td>
+<<<<<<< HEAD
                     <input type="number" name="quantite" min="0" value="0" />
+=======
+                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="hidden" name="idArticle" th:value="${dessert.idArticle}"/>
+>>>>>>> 671d83c8731a2fd261a63acff48fea76f94e24ba
                 </td>
             </tr>
         </table>
+        <div class="table-number">
+    		<label for="NoTable">Numéro de table :</label>
+    		<input type="number" name="NoTable"  min="0" value="0" required>
+		</div>
     </div>
 
     <!-- Récapitulatif des articles ajoutés -->
