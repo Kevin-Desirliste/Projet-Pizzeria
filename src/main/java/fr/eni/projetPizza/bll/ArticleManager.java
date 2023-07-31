@@ -35,4 +35,10 @@ public class ArticleManager {
 		return articleDAO.InsertCommande(commande);
 	}
 
+
+
+	public Article getArticleById(int idArticle) {
+		return articleDAO.getArticleById(idArticle);
+	}
+
 }

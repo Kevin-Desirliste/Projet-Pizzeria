@@ -21,6 +21,8 @@ public interface ArticleDAO {
 
 	public Object InsertCommande(Commande commande);
 
+	public Article getArticleById(int idArticle);
+
 
 	
 }

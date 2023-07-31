@@ -47,6 +47,16 @@ public class Commande {
 
 	}
 	
+	
+	
+	public Commande(int idCommande, EtatCommande statutCommande, LocalDateTime heureCommande, int total, int noTable) {
+		this.idCommande = idCommande;
+		this.statutCommande = statutCommande;
+		this.heureCommande = heureCommande;
+		this.total = total;
+		this.noTable = noTable;
+	}
+
 	public void ajouterLigneCommande(LigneCommande ligne) {
 		this.lignesCommande.add(ligne);
 	}
