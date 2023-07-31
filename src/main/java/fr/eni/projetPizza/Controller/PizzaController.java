@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.eni.demoCouches.bo.User;
 import fr.eni.projetPizza.bll.ArticleManager;
 import fr.eni.projetPizza.bo.Article;
 import fr.eni.projetPizza.bo.Commande;
@@ -33,23 +32,6 @@ public class PizzaController {
     public String afficherAccueil() {
         return "Accueil"; // renvoie à un fichier de vue nommé "Accueil.html" 
     }
-
-    @GetMapping("/test")
-    public String test()
-    {
-    	return "test";
-    }
-
-    @PostMapping("/test")
-    public String traitementPosttest(@RequestParam int[] idProduits)
-    {
-    	System.out.println("idProduits: " + idProduits);
-    	for(int i: idProduits) {
-    		System.out.println();
-    	}
-    	return "test";
-    }
-
     
     @GetMapping("/articles")
     public String afficherArticles(Model model) {
@@ -81,6 +63,7 @@ public class PizzaController {
 //    	}
 //    	return "articles";
 //    }
+    
     @PostMapping("/articles")
     public String traitementPostArticles(Commande commande) {
     	this.articleManager.InsertCommande(commande);
@@ -98,11 +81,6 @@ public class PizzaController {
         return "Carte";
     }
     
-    @GetMapping("/Plats")
-    public String afficherPlats() {
-        return "Plats";
-    }
-    
     @GetMapping("/Panier")
     public String afficherPanier() {
         return "Panier";
@@ -113,9 +91,9 @@ public class PizzaController {
         return "Commande";
     }
     
-    @GetMapping("/TableDetail")
-    public String afficherTableDetail() {
-        return "TableDetail";
+    @GetMapping("/Table")
+    public String afficherTable() {
+        return "Table";
     }
     
     @GetMapping("/Historique")

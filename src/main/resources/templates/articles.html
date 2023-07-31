@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Articles</title>
-    <link rel="stylesheet" href="Article.css"> <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="Article.css">
 </head>
 <form action="/articles" method="post">
     <h1>Articles</h1>
@@ -18,13 +18,11 @@
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
-            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
-            <!-- Assurez-vous que "entrees" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
             <tr th:each="entree : ${entrees}">
                 <td th:text="${entree.nom}"></td>
-                <td th:text="${entree.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td th:text="${entree.prix} + ' €'"></td>
                 <td>
-                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="number" name="quantite" min="0" value="0" />
                 </td>
             </tr>
         </table>
@@ -37,13 +35,11 @@
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
-            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
-            <!-- Assurez-vous que "plats" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
             <tr th:each="plat : ${plats}">
                 <td th:text="${plat.nom}"></td>
-                <td th:text="${plat.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td th:text="${plat.prix} + ' €'"></td>
                 <td>
-                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="number" name="quantite" min="0" value="0" />
                 </td>
             </tr>
         </table>
@@ -56,13 +52,11 @@
                 <th>Prix</th>
                 <th>Quantité</th>
             </tr>
-            <!-- Utilisez une boucle pour parcourir les données et afficher chaque enregistrement -->
-            <!-- Assurez-vous que "desserts" est le nom de l'attribut que vous utilisez dans le modèle (Model) pour transmettre les données -->
             <tr th:each="dessert : ${desserts}">
                 <td th:text="${dessert.nom}"></td>
-                <td th:text="${dessert.prix} + ' €'"></td> <!-- Rajoute "€" après le prix -->
+                <td th:text="${dessert.prix} + ' €'"></td>
                 <td>
-                    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="number" name="quantite" min="0" value="0" />
                 </td>
             </tr>
         </table>
