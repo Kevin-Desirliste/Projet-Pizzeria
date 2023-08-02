@@ -16,13 +16,15 @@ public class SpringSecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		// @formatter:off
         http.authorizeHttpRequests((authorize) -> authorize
+        		.requestMatchers("/Accueil", "/Carte", "/Panier", "/Commande").permitAll()
+                .requestMatchers("/Commande", "/articles").hasRole("Serveur")
+                .requestMatchers("/Preparation").hasRole("Pizzaiollo")
                 .anyRequest().authenticated()               
                 )       
-//                .httpBasic(withDefaults())
+        		//.httpBasic(withDefaults())
                 .formLogin((formLogin) -> formLogin
-                	.loginPage("/Connexion")
+                	.loginPage("/login")
                 	.permitAll()
-                	.defaultSuccessUrl("/Accueil")
                 )
                 ;
         // @formatter:on

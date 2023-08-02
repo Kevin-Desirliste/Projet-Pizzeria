@@ -44,6 +44,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	private static final String INSERT_COMMANDE="INSERT INTO COMMANDE(heure_preparation, total, id_table, id_etat_commande) VALUES(?,?,?,?)";
 	private static final String INSERT_LIGNE_COMMANDE="INSERT INTO LIGNECOMMANDE(id_commande, id_article, quantite) VALUES(?,?,?)";
 	private static final String SELECT_COMMANDE="select id_commande, total, heure_preparation, id_commande , libelle from Commande inner join EtatCommande on EtatCommande.id_etat_commande = Commande.id_etat_commande";
+	private static final String INSERT_ARTICLES="INSERT INTO COMMANDE(heure_preparation, total, id_table, id_etat_commande) VALUES(?,?,?,?)";
+
 	
 	@Autowired
 	public ArticleDAOJdbcImpl(JdbcTemplate jdbcTemplate) {
@@ -57,6 +59,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public List<Article> selectArticles()  {
 		List<Article> lstArticles = null;

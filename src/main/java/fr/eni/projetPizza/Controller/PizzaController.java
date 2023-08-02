@@ -30,7 +30,7 @@ public class PizzaController {
 	}
 	  
 
-    @GetMapping("/Accueil")
+    @GetMapping({"/Accueil", "/"})
     public String afficherAccueil() {
         return "Accueil"; // renvoie à un fichier de vue nommé "Accueil.html" 
     }
@@ -85,10 +85,10 @@ public class PizzaController {
         return "articles";
     }
 	
-	@GetMapping("/Connexion")
+	@GetMapping("/login")
     public String afficherConnexion() {
         // Votre logique pour afficher la page "Connexion.html"
-        return "Connexion"; // renvoie à un fichier de vue nommé "Connexion.html"
+        return "login"; // renvoie à un fichier de vue nommé "Connexion.html"
     }
 	
     @GetMapping("/Carte")
