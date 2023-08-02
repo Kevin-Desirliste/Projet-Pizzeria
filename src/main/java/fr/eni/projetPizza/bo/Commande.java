@@ -23,7 +23,7 @@ public class Commande {
 		this.idCommande = idCommande;
 	}
 
-	public Commande( EtatCommande statutCommande, LocalDateTime heureCommande,  int noTable) {
+	public Commande(EtatCommande statutCommande, LocalDateTime heureCommande,  int noTable) {
 		this();
 		this.statutCommande = statutCommande;
 		this.heureCommande = heureCommande;
@@ -46,8 +46,6 @@ public class Commande {
 		this.heureCommande = heureCommande;
 
 	}
-	
-	
 	
 	public Commande(int idCommande, EtatCommande statutCommande, LocalDateTime heureCommande, int total, int noTable) {
 		this.idCommande = idCommande;
@@ -104,6 +102,11 @@ public class Commande {
 	public List<LigneCommande> getLignesCommande() {
 		return lignesCommande;
 	}
+
+	public void setLignesCommande(List<LigneCommande> lignesCommande) {
+		this.lignesCommande = lignesCommande;
+	}
+	
 	
 }
 

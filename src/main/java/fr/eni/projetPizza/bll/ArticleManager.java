@@ -35,10 +35,23 @@ public class ArticleManager {
 		return articleDAO.InsertCommande(commande);
 	}
 
-
-
 	public Article getArticleById(int idArticle) {
 		return articleDAO.getArticleById(idArticle);
 	}
-
+	
+	public List<Commande> SelectCommande()  {
+		return articleDAO.SelectCommande();
+	}
+	public Commande getCommandeById(int idCommande) {
+		return articleDAO.getCommandeById(idCommande);
+	}
+	
+	public List<Commande> SelectPreparation()  
+	{
+		return articleDAO.SelectPreparation();
+	}
+	
+	public Object UpdateStatutCommande(Commande commande) {
+		return articleDAO.UpdateStatutCommande(commande);
+	}
 }

@@ -1,1 +1,78 @@
 @charset "UTF-8";
+/* Fichier Preparation.css */
+
+/* Styles pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 30px;
+}
+
+/* Styles pour l'en-tête */
+.header {
+    margin-bottom: 20px;
+}
+
+/* Styles pour le conteneur des commandes */
+.commandes-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+/* Styles pour la liste des commandes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styles pour chaque élément de la liste de commandes */
+li {
+    margin-bottom: 20px;
+}
+
+/* Styles pour les informations de chaque commande */
+.commande-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Styles pour le numéro de commande */
+.commande-id {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Styles pour l'heure de préparation */
+.commande-heure {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Styles pour la liste des articles de chaque commande */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styles pour chaque élément de la liste d'articles */
+li {
+    margin-bottom: 10px;
+}
+
+/* Styles pour le bouton "Commande payée" */
+.commande-paye-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}

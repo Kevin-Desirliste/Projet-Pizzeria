@@ -1,4 +1,4 @@
-package fr.eni.projetPizza.controller;
+package fr.eni.projetPizza.Controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -82,13 +82,34 @@ public class PizzaController {
 
         this.articleManager.InsertCommande(commande);
 
-        return "articles";
+        return "redirect:/Commande";
     }
-	
-	@GetMapping("/Connexion")
+    
+    @GetMapping("/Commande")
+    public String afficherCommande(Model model) {
+    	 List<Commande> commande = articleManager.SelectCommande(); 
+         model.addAttribute("commandes", commande);
+        return "Commande";
+    }
+    
+    @GetMapping("/CommandePayee")
+    public String CommandePaye(@RequestParam int idCommande) {
+    	 EtatCommande statutCommande = new EtatCommande();
+         statutCommande.setId_etat_commande(3);
+         
+         Commande cmd = new Commande();
+         cmd.setIdCommande(idCommande);
+    	cmd.setStatutCommande(statutCommande);
+    	
+    	 this.articleManager.UpdateStatutCommande(cmd);
+    	  	
+        return "redirect:/Commande";
+    }
+    
+	@GetMapping("/login")
     public String afficherConnexion() {
         // Votre logique pour afficher la page "Connexion.html"
-        return "Connexion"; // renvoie à un fichier de vue nommé "Connexion.html"
+        return "login"; // renvoie à un fichier de vue nommé "Connexion.html"
     }
 	
     @GetMapping("/Carte")
@@ -99,11 +120,6 @@ public class PizzaController {
     @GetMapping("/Panier")
     public String afficherPanier() {
         return "Panier";
-    }
-    
-    @GetMapping("/Commande")
-    public String afficherCommande() {
-        return "Commande";
     }
     
     @GetMapping("/Table")
@@ -117,7 +133,9 @@ public class PizzaController {
     }
     
     @GetMapping("/Preparation")
-    public String afficherPreparation() {
+    public String afficherPreparation(Model model) {
+    	 List<Commande> commande = articleManager.SelectPreparation(); 
+         model.addAttribute("commandes", commande);
         return "Preparation";
     }
 }

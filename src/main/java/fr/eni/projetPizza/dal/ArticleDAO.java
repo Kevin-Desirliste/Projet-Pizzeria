@@ -23,6 +23,14 @@ public interface ArticleDAO {
 
 	public Article getArticleById(int idArticle);
 
+	public List<Commande> SelectCommande();
+
+	public List<Commande> SelectPreparation();
+
+	public Commande getCommandeById(int idCommande);
+
+	public Object UpdateStatutCommande(Commande commande);
+
 
 	
 }

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Commandes à préparer</title>
+    <link rel="stylesheet" href="Preparation.css">
 </head>
 <body>
-
+    <div class="header">
+        <h1>Historiques de commandes</h1>
+    </div>
+    <div class="commandes-container">
+        <ul class="commandes-list">
+            <li th:each="commande : ${commandes}">
+                <div class="commande-item">
+                    <span class="commande-id">Commande n° <span th:text="${commande.idCommande}"></span></span>
+                    <span class="commande-heure">Heure de préparation : <span th:text="${commande.heureCommande}"></span></span>
+                    <ul>
+                        <li th:each="ligneCommande : ${commande.lignesCommande}">
+                            <span th:text="${ligneCommande.article.nom}"></span>
+                            <span th:text="${ligneCommande.quantite}"></span>
+                            <span th:text="${ligneCommande.article.taille}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
