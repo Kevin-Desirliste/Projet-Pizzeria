@@ -83,7 +83,7 @@ li {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #555;
     padding: 10px;
     margin-top: 10px;
@@ -92,4 +92,8 @@ nav {
 nav a {
     color: #fff;
     padding: 10px 20px;
+}
+
+.logout {
+    margin-right: 0;
 }

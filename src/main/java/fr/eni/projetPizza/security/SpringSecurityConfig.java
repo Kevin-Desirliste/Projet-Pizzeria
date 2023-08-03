@@ -31,9 +31,8 @@ public class SpringSecurityConfig {
 //                )
         .logout(((logout) ->
  				logout.invalidateHttpSession(true)
- 					.logoutUrl("/Accueil")
- 					.logoutSuccessUrl("/Accueil"))
-        		)		
+ 					.logoutSuccessUrl("/Accueil")  
+        		))		
                 ;
         // @formatter:on
 		return http.build();
