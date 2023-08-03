@@ -1,6 +1,5 @@
-package fr.eni.projetPizza.Controller;
+package fr.eni.projetPizza.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eni.projetPizza.bll.ArticleManager;
@@ -30,9 +30,9 @@ public class PizzaController {
 	}
 	  
 
-    @GetMapping("/Accueil")
+    @GetMapping({"/Accueil"})
     public String afficherAccueil() {
-        return "Accueil"; // renvoie à un fichier de vue nommé "Accueil.html" 
+        return "Accueil";
     }
     
     @GetMapping("/articles")
@@ -106,7 +106,7 @@ public class PizzaController {
         return "redirect:/Commande";
     }
     
-	@GetMapping("/login")
+    @GetMapping("/login")
     public String afficherConnexion() {
         // Votre logique pour afficher la page "Connexion.html"
         return "login"; // renvoie à un fichier de vue nommé "Connexion.html"

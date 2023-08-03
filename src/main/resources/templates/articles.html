@@ -30,7 +30,7 @@
                 <td th:text="${entree.nom}"></td>
                 <td th:text="${entree.prix} + ' €'"></td>
                 <td>
-				    <input type="number" name="quantite" min="0" value="0" /> <!-- Champ de type "number" pour la quantité -->
+                    <input type="number" name="quantite" min="0" value="0" />
                     <input type="hidden" name="idArticle" th:value="${entree.idArticle}"/>
                 </td>
             </tr>
@@ -86,6 +86,9 @@
         <h2>Récapitulatif</h2>
         <div class="recap-screen" id="recap-screen">
             <ul id="recap-list">
+            	<li>test</li>
+            	<li>test</li>
+            	<li>test</li>
             </ul>
         </div>
     </div>-->
