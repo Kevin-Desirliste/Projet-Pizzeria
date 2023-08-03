@@ -1,9 +1,15 @@
+/* Remplacez le contenu du fichier Panier.css par ce CSS */
+
+body {
+    margin: 0;
+}
+
 .cart-container {
-	font-family: Arial, sans-serif;
-	max-width: 500px; 
-	margin: 20px auto;
-	border: 1px solid #ccc;
-	padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
 }
 
 header {
@@ -13,7 +19,8 @@ header {
 }
 
 h1 {
-	text-align: center;
+    text-align: center;
+    margin: 0;
 }
 
 nav {
@@ -39,17 +46,30 @@ nav a {
 }
 
 .cart-title {
-  text-align: center;
+    text-align: center;
 }
 
 .cart-items {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .cart-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.cart-item .pizza-name {
+    margin-right: 10px;
+}
+
+.cart-item .item-options {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item label {
+    margin-right: 10px;
 }
 
 .cart-total {
