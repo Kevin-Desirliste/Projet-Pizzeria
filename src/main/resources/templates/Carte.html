@@ -1,97 +1,45 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Carte</title>-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  Lien vers Font Awesome -->
-<!--    <link rel="stylesheet" href="/Carte.css">  Lien vers le fichier CSS -->
-<!--</head>-->
-<!--<body>-->
-<!--    <header>-->
-<!--        <h1>Pizzeria Bella</h1>-->
-<!--    </header>-->
-<!--    <nav>-->
-<!--        <a href="/Accueil"><i class="fas fa-home"></i></a>-->
-<!--        <a href="/Panier"><i class="fas fa-shopping-cart"></i></a>-->
-<!--        <a href="/Login"><i class="fas fa-user"></i></a>-->
-<!--    </nav>-->
-<!--    <div class="content">-->
-<!--        <h1>Carte</h1>-->
-<!--        <div class="left">-->
-<!--             Utiliser une boucle pour afficher les pizzas de gauche -->
-<!--            <div th:each="pizza, iterStat : ${pizzas}">-->
-<!--                 Afficher uniquement la première moitié des pizzas dans "left" -->
-<!--                <div th:if="${iterStat.index < pizzas.size() / 2}">-->
-<!--                    <a class="lien" href="/Panier">-->
-<!--                         Utilisez la propriété "image" de l'objet Article pour le chemin d'accès à l'image -->
-<!--                        <img th:src="@{/images/__${pizza.image}__}" alt="Description de l'image" width="200">-->
-<!--                        <h4 th:text="${pizza.nom}"></h4>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="right">-->
-<!--             Utiliser une autre boucle pour afficher les pizzas de droite -->
-<!--             Afficher la deuxième moitié des pizzas dans "right" -->
-<!--            <div th:each="pizza, iterStat : ${pizzas}">-->
-<!--                <div th:if="${iterStat.index >= pizzas.size() / 2}">-->
-<!--                    <a class="lien" href="/Panier">-->
-<!--                         Utilisez la propriété "image" de l'objet Article pour le chemin d'accès à l'image -->
-<!--                        <img th:src="@{/images/__${pizza.image}__}" alt="Description de l'image" width="200">-->
-<!--                        <h4 th:text="${pizza.nom}"></h4>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <footer>-->
-<!--        © 2023 Pizzeria Bella - Tous droits réservés-->
-<!--    </footer>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Carte</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Lien vers Font Awesome -->
-	<link rel="stylesheet" href="/Carte.css"> <!-- Lien vers le fichier CSS -->
+    <meta charset="UTF-8">
+    <title>Carte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Lien vers Font Awesome -->
+    <link rel="stylesheet" href="/Carte.css"> <!-- Lien vers le fichier CSS -->
 </head>
 <body>
-	<header>
+    <header>
         <h1>Pizzeria Bella</h1>
     </header>
-	<nav>
-    	<a href="/Accueil"><i class="fas fa-home"></i></a>
-    	<a href="/Panier"><i class="fas fa-shopping-cart"></i></a>
-    	<a href="/Connexion"><i class="fas fa-user"></i></a>
-	</nav>
-	<div class="content">
-		<h1>Carte</h1>
-		<div class="left">
-			<a class="lien" href="/Panier">
-				<img src="images/pizza1.jpeg" alt="Description de l'image" width="200">
-				<h4>Margherita</h4>
-			</a>
-			<a class="lien" href="/Panier">
-				<img src="images/pizza2.jpg" alt="Description de l'image" width="200">
-				<h4>Diva</h4>
-			</a>
-		</div>
-		<div class="right">
-			<a class="lien" href="/Panier">
-				<img src="images/pizza7.jpg" alt="Description de l'image" width="200">
-				<h4>Pepperoni</h4>
-			</a>
-			<a class="lien" href="/Panier">
-				<img src="images/pizza5.jpg" alt="Description de l'image" width="200">
-				<h4>Reina</h4>
-			</a>
-		</div>
-	</div>
-	<footer>
-	    © 2023 Pizzeria Bella - Tous droits réservés
-	</footer>
+    <nav>
+        <a href="/Accueil"><i class="fas fa-home"></i></a>
+        <a href="/Panier"><i class="fas fa-shopping-cart"></i></a>
+        <a href="/Connexion"><i class="fas fa-user"></i></a>
+    </nav>
+    <div class="content">
+        <h1>Carte</h1>
+        <div class="left">
+            <a class="lien" href="/Panier">
+                <img src="images/pizza1.jpeg" alt="Description de l'image" width="200">
+                <h4>Margherita</h4>
+            </a>
+            <a class="lien" href="/Panier">
+                <img src="images/pizza2.jpg" alt="Description de l'image" width="200">
+                <h4>Diva</h4>
+            </a>
+        </div>
+        <div class="right">
+            <a class="lien" href="/Panier">
+                <img src="images/pizza7.jpg" alt="Description de l'image" width="200">
+                <h4>Pepperoni</h4>
+            </a>
+            <a class="lien" href="/Panier">
+                <img src="images/pizza5.jpg" alt="Description de l'image" width="200">
+                <h4>Reina</h4>
+            </a>
+        </div>
+    </div>
+    <footer>
+        © 2023 Pizzeria Bella - Tous droits réservés
+    </footer>
 </body>
 </html>
