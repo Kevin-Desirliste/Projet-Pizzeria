@@ -18,13 +18,30 @@
 		</nav>
 		<h2 class="cart-title">Mon Panier</h2>
 		<ul class="cart-items">
-			<li class="cart-item">Produit 1</li>
-			<li class="cart-item">Produit 2</li>
-			<li class="cart-item">Produit 3</li>
-			<!-- Ajoutez d'autres éléments ici pour représenter les produits dans le panier -->
+			<!-- Utiliser une boucle pour afficher les articles dans le panier -->
+			<li class="cart-item" th:each="article : ${articles}">
+				<div class="item-details">
+					<h4 th:text="${article.nom}"></h4>
+					<p>Prix: <span th:text="${article.prix}"></span> €</p>
+					<!-- Ajouter un champ pour la quantité -->
+					<div class="quantity">
+						<label for="quantity">Quantité:</label>
+						<input type="number" name="quantity" min="1" value="1" />
+					</div>
+					<!-- Ajouter un menu déroulant pour la taille -->
+					<div class="size">
+						<label for="size">Taille:</label>
+						<select name="size">
+							<option value="M">M</option>
+							<option value="L">L</option>
+						</select>
+					</div>
+				</div>
+			</li>
 		</ul>
 		<div class="cart-total">
-			<p>Total: $50.00</p>
+			<!-- Calculer le total en utilisant Thymeleaf si nécessaire -->
+			<p>Total: <span th:text="${total}"></span> €</p>
 		</div>
 		<a class="bouton" href="/Commande">Valider la commande</a>
 	</div>

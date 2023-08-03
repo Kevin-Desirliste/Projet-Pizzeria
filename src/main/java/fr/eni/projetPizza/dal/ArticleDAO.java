@@ -31,6 +31,8 @@ public interface ArticleDAO {
 
 	public Object UpdateStatutCommande(Commande commande);
 
+	public List<Article> SelectPizza();
+
 
 	
 }

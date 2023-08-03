@@ -113,12 +113,20 @@ public class PizzaController {
     }
 	
     @GetMapping("/Carte")
-    public String afficherCarte() {
+    public String afficherCarte(Model model) {
+    	  List<Article> pizza = articleManager.selectPizza(); 
+          model.addAttribute("pizzas", pizza);
         return "Carte";
     }
     
     @GetMapping("/Panier")
-    public String afficherPanier() {
+    public String afficherPanier(Model model) {
+        //List<Article> articles = articleManager.getArticlesInPanier(); // Récupérer les articles depuis le service
+        //double total = articleManager.calculateTotal(); // Calculer le total depuis le service
+
+       // model.addAttribute("articles", articles);
+        //model.addAttribute("total", total);
+        
         return "Panier";
     }
     
@@ -137,5 +145,19 @@ public class PizzaController {
     	 List<Commande> commande = articleManager.SelectPreparation(); 
          model.addAttribute("commandes", commande);
         return "Preparation";
+    }
+    
+    @GetMapping("/CommandePrepare")
+    public String CommandePrepare(@RequestParam int idCommande) {
+    	 EtatCommande statutCommande = new EtatCommande();
+         statutCommande.setId_etat_commande(2);
+         
+         Commande cmd = new Commande();
+         cmd.setIdCommande(idCommande);
+    	 cmd.setStatutCommande(statutCommande);
+    	
+    	 this.articleManager.UpdateStatutCommande(cmd);
+    	  	
+        return "redirect:/Preparation";
     }
 }

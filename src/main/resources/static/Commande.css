@@ -47,8 +47,23 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none; /* Supprimer le soulignement du texte */
+    display: inline-block; /* Ajouter cette propriété pour ajuster la largeur du bouton */
+    margin-top: 10px; /* Ajouter un espace entre les boutons */
 }
 
 .commande-paye-btn:hover {
     background-color: #218838;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #555;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    padding: 10px 20px;
 }
