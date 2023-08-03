@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Panier</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Lien vers Font Awesome -->
-	<link rel="stylesheet" href="/Panier.css">
+    <meta charset="UTF-8">
+    <title>Panier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Lien vers Font Awesome -->
+    <link rel="stylesheet" href="/Panier.css">
 </head>
 <body>
-	<div class="cart-container">
-		<header>
-			<h1>Pizzeria Bella</h1>
-		</header>
-		<nav>
-			<a href="/Accueil"><i class="fas fa-home"></i></a>
-			<a href="/Panier"><i class="fas fa-shopping-cart"></i></a>
-			<a href="/articles"><i class="fas fa-user"></i></a>
-			<a href="/Preparation"><i class="fas fa-user"></i></a>
-		</nav>
-		<h2 class="cart-title">Mon Panier</h2>
-		<ul class="cart-items">
-			<!-- Utiliser une boucle pour afficher les articles dans le panier -->
-			<li class="cart-item" th:each="article : ${articles}">
-				<div class="item-details">
-					<h4 th:text="${article.nom}"></h4>
-					<p>Prix: <span th:text="${article.prix}"></span> €</p>
-					<!-- Ajouter un champ pour la quantité -->
-					<div class="quantity">
-						<label for="quantity">Quantité:</label>
-						<input type="number" name="quantity" min="1" value="1" />
-					</div>
-					<!-- Ajouter un menu déroulant pour la taille -->
-					<div class="size">
-						<label for="size">Taille:</label>
-						<select name="size">
-							<option value="M">M</option>
-							<option value="L">L</option>
-						</select>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<div class="cart-total">
-			<!-- Calculer le total en utilisant Thymeleaf si nécessaire -->
-			<p>Total: <span th:text="${total}"></span> €</p>
-		</div>
-		<a class="bouton" href="/Commande">Valider la commande</a>
-	</div>
+    <div class="cart-container">
+        <header>
+            <h1>Pizzeria Bella</h1>
+        </header>
+        <nav>
+            <a href="/Accueil"><i class="fas fa-home"></i></a>
+            <a href="/Panier"><i class="fas fa-shopping-cart"></i></a>
+            <a href="/articles"><i class="fas fa-user"></i></a>
+            <a href="/Preparation"><i class="fas fa-user"></i></a>
+        </nav>
+        <h2 class="cart-title">Mon Panier</h2>
+        <ul class="cart-items">
+            <li class="cart-item">
+                <span>Margherita</span>
+                <!-- Ajoutez l'étiquette "Quantité" et le bouton number pour la quantité -->
+                <label for="quantity">Quantité:</label>
+                <input type="number" id="quantity" value="1" min="1" max="10">
+                <!-- Ajoutez l'étiquette "Taille" et le sélecteur pour la taille de la pizza -->
+                <label for="size">Taille:</label>
+                <select id="size">
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                </select>
+            </li>
+            <!-- Ajoutez d'autres éléments ici pour représenter les produits dans le panier -->
+        </ul>
+        <div class="cart-total">
+            <p>Total: 10.00 €</p>
+        </div>
+        <!-- Remplacez le lien par ce bouton -->
+        <button class="bouton" onclick="validerCommande()">Valider la commande</button>
+    </div>
+    <!-- Ajoutez cette div pour la pop-up -->
+    <div id="popup" class="popup">
+        <p>Commande validée</p>
+    </div>
+    <script>
+        function validerCommande() {
+            // Afficher la pop-up
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+            // Masquer la pop-up après 3 secondes (facultatif)
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

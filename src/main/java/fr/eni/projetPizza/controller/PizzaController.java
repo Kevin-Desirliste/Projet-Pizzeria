@@ -39,8 +39,6 @@ public class PizzaController {
     public String afficherArticles(Model model) {
         try 
         {
-//            List<Article> articles = articleManager.selectArticles();  // Récupérer les données de la table "Table" depuis la base de données
-//            model.addAttribute("articles", articles);  // Ajouter les données à un modèle (Model) pour les transmettre à la vue (HTML)
             List<Article> entree = articleManager.selectEntree(); 
             model.addAttribute("entrees", entree);
             
@@ -115,7 +113,7 @@ public class PizzaController {
     public String afficherCarte(Model model) {
     	  List<Article> pizza = articleManager.selectPizza(); 
           model.addAttribute("pizzas", pizza);
-        return "Carte";
+          return "Carte";
     }
     
     @GetMapping("/Panier")
@@ -128,22 +126,12 @@ public class PizzaController {
         
         return "Panier";
     }
-    
-    @GetMapping("/Table")
-    public String afficherTable() {
-        return "Table";
-    }
-    
-    @GetMapping("/Historique")
-    public String afficherHistorique() {
-        return "Historique";
-    }
-    
+        
     @GetMapping("/Preparation")
     public String afficherPreparation(Model model) {
     	 List<Commande> commande = articleManager.SelectPreparation(); 
          model.addAttribute("commandes", commande);
-        return "Preparation";
+         return "Preparation";
     }
     
     @GetMapping("/CommandePrepare")
@@ -157,6 +145,6 @@ public class PizzaController {
     	
     	 this.articleManager.UpdateStatutCommande(cmd);
     	  	
-        return "redirect:/Preparation";
+    	 return "redirect:/Preparation";
     }
 }
