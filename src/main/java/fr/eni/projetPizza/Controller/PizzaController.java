@@ -1,6 +1,5 @@
 package fr.eni.projetPizza.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eni.projetPizza.bll.ArticleManager;
@@ -30,9 +30,9 @@ public class PizzaController {
 	}
 	  
 
-    @GetMapping({"/Accueil", "/"})
+    @GetMapping({"/Accueil"})
     public String afficherAccueil() {
-        return "Accueil"; // renvoie à un fichier de vue nommé "Accueil.html" 
+        return "Accueil";
     }
     
     @GetMapping("/articles")
@@ -82,10 +82,31 @@ public class PizzaController {
 
         this.articleManager.InsertCommande(commande);
 
-        return "articles";
+        return "redirect:/Commande";
     }
-	
-	@GetMapping("/login")
+    
+    @GetMapping("/Commande")
+    public String afficherCommande(Model model) {
+    	 List<Commande> commande = articleManager.SelectCommande(); 
+         model.addAttribute("commandes", commande);
+        return "Commande";
+    }
+    
+    @GetMapping("/CommandePayee")
+    public String CommandePaye(@RequestParam int idCommande) {
+    	 EtatCommande statutCommande = new EtatCommande();
+         statutCommande.setId_etat_commande(3);
+         
+         Commande cmd = new Commande();
+         cmd.setIdCommande(idCommande);
+    	cmd.setStatutCommande(statutCommande);
+    	
+    	 this.articleManager.UpdateStatutCommande(cmd);
+    	  	
+        return "redirect:/Commande";
+    }
+    
+    @GetMapping("/login")
     public String afficherConnexion() {
         // Votre logique pour afficher la page "Connexion.html"
         return "login"; // renvoie à un fichier de vue nommé "Connexion.html"
@@ -101,11 +122,6 @@ public class PizzaController {
         return "Panier";
     }
     
-    @GetMapping("/Commande")
-    public String afficherCommande() {
-        return "Commande";
-    }
-    
     @GetMapping("/Table")
     public String afficherTable() {
         return "Table";
@@ -117,7 +133,9 @@ public class PizzaController {
     }
     
     @GetMapping("/Preparation")
-    public String afficherPreparation() {
+    public String afficherPreparation(Model model) {
+    	 List<Commande> commande = articleManager.SelectPreparation(); 
+         model.addAttribute("commandes", commande);
         return "Preparation";
     }
 }

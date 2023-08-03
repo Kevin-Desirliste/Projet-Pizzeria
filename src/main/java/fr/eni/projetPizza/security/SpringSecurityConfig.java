@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,7 +22,6 @@ public class SpringSecurityConfig {
                 .requestMatchers("/Preparation").hasRole("Pizzaiollo")
                 .anyRequest().authenticated()               
                 )       
-        		//.httpBasic(withDefaults())
                 .formLogin((formLogin) -> formLogin
                 	.loginPage("/login")
                 	.permitAll()
@@ -36,4 +36,10 @@ public class SpringSecurityConfig {
 		return NoOpPasswordEncoder.getInstance();
 		//return new BCryptPasswordEncoder()
 	}
+	
+	@Bean
+	public WebSecurityCustomizer webSecurityCustomizer() {
+		return (web) -> web.ignoring().requestMatchers("/static/**");
+	}
+
 }
