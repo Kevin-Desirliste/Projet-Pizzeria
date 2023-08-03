@@ -6,6 +6,7 @@ public class Article {
 	private int prix;
 	private TypeArticle typeArticle;
 	private String taille;
+	private String image;
 	
 	public Article() {
 		// TODO Auto-generated constructor stub
@@ -48,7 +49,16 @@ public class Article {
 		this.typeArticle = typeArticle;
 	}
 
-	
+
+	public Article(int idArticle, String nom, int prix, String taille, String image) {
+		super();
+		this.idArticle = idArticle;
+		this.nom = nom;
+		this.prix = prix;
+		this.taille = taille;
+		this.image = image;
+	}
+
 	public int getIdArticle() {
 		return idArticle;
 	}
@@ -89,6 +99,14 @@ public class Article {
 		this.taille = taille;
 	}
 
+	 public String getImage() {
+	        return image;
+	    }
+
+	    public void setImage(String image) {
+	        this.image = image;
+	    }
+	    
 	@Override
 	public String toString() {
 		return "Article [idArticle=" + idArticle + ", nomArticle=" + nom + ", prixArticle=" + prix

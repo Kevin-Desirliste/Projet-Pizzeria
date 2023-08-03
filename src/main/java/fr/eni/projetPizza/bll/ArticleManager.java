@@ -54,4 +54,9 @@ public class ArticleManager {
 	public Object UpdateStatutCommande(Commande commande) {
 		return articleDAO.UpdateStatutCommande(commande);
 	}
+	
+	public List<Article> selectPizza(){
+		return articleDAO.SelectPizza();
+	}
+	
 }

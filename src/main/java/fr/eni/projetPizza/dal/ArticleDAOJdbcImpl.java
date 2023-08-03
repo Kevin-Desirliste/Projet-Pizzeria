@@ -47,11 +47,11 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	private static final String SELECT_COMMANDE_BY_ID = "SELECT id_commande, total, id_table, id_etat_commande FROM COMMANDE WHERE id_Commande = :idCommande";
 	private static final String INSERT_COMMANDE = "INSERT INTO COMMANDE(heure_preparation, total, id_table, id_etat_commande) VALUES(?,?,?,?)";
 	private static final String INSERT_LIGNE_COMMANDE = "INSERT INTO LIGNECOMMANDE(id_commande, id_article, quantite) VALUES(?,?,?)";
-	private static final String SELECT_COMMANDE = "select id_commande, total, heure_preparation, id_table , libelle from Commande inner join EtatCommande on EtatCommande.id_etat_commande = Commande.id_etat_commande";
-	private static final String SELECT_PREPARATION = "select Commande.id_commande, heure_preparation, nom, quantite, taille from Commande inner join LigneCommande on LigneCommande.id_commande = Commande.id_commande inner join Article on Article.id_article = LigneCommande.id_article order by Commande.id_commande";
+	private static final String SELECT_COMMANDE = "select id_commande, total, heure_preparation, id_table , libelle from Commande inner join EtatCommande on EtatCommande.id_etat_commande = Commande.id_etat_commande where Commande.id_etat_commande != 3";
+	private static final String SELECT_PREPARATION = "select Commande.id_commande, heure_preparation, nom, quantite, taille from Commande inner join LigneCommande on LigneCommande.id_commande = Commande.id_commande inner join Article on Article.id_article = LigneCommande.id_article where Commande.id_etat_commande =  1 order by Commande.id_commande";
 	private static final String UPDATE_STATUT_COMMANDE = "UPDATE COMMANDE SET id_etat_commande = ? where id_commande = ? ";
-
-
+	private static final String SELECT_PIZZA = "SELECT id_article ,nom, prix, taille, image from ARTICLE where nom like 'pizza%'";
+	
 	@Autowired
 	public ArticleDAOJdbcImpl(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
@@ -107,6 +107,19 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 		List<Article> lstArticles = null;
 		try {
 			lstArticles = jdbcTemplate.query(SELECT_DESSERT, new ArticleTypeRowMapper());
+		} catch (DataAccessException dae) {
+			dae.printStackTrace();
+			throw dae;
+		}
+		return lstArticles;
+	}
+	
+	@Override
+	public List<Article> SelectPizza() {
+		List<Article> lstArticles = null;
+		try {
+
+			lstArticles = jdbcTemplate.query(SELECT_PIZZA, new ArticleRowMapper());
 		} catch (DataAccessException dae) {
 			dae.printStackTrace();
 			throw dae;
@@ -256,6 +269,15 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 		public Article mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 			return new Article(rs.getInt("id_article"), rs.getString("nom"), rs.getInt("prix"), rs.getString("taille"));
+		}
+	}
+	
+	static class PizzaRowMapper implements RowMapper<Article> {
+
+		@Override
+		public Article mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+			return new Article(rs.getInt("id_article"), rs.getString("nom"), rs.getInt("prix"), rs.getString("taille"), rs.getString("image"));
 		}
 	}
 
