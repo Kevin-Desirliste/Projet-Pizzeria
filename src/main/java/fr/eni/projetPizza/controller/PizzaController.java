@@ -106,11 +106,10 @@ public class PizzaController {
         return "redirect:/Commande";
     }
     
-    @GetMapping("/login")
-    public String afficherConnexion() {
-        // Votre logique pour afficher la page "Connexion.html"
-        return "login"; // renvoie à un fichier de vue nommé "Connexion.html"
-    }
+//    @GetMapping("/Login")
+//    public String Login() {
+//        return "Login.html";
+//    }
 	
     @GetMapping("/Carte")
     public String afficherCarte(Model model) {

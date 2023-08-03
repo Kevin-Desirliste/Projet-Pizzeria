@@ -2,6 +2,7 @@ package fr.eni.projetPizza.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -17,15 +18,22 @@ public class SpringSecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		// @formatter:off
         http.authorizeHttpRequests((authorize) -> authorize
-        		.requestMatchers("/Accueil", "/Carte", "/Panier", "/Commande").permitAll()
-                .requestMatchers("/Commande", "/articles").hasRole("Serveur")
-                .requestMatchers("/Preparation").hasRole("Pizzaiollo")
+        		.requestMatchers("/Accueil", "/Carte", "/Panier", "/*.css", "/images/**").permitAll()
+                .requestMatchers("/Commande", "/articles").hasAuthority("SERVEUR")
+        		.requestMatchers("/Preparation").hasAuthority("PIZZAIOLLO")
                 .anyRequest().authenticated()               
-                )       
-                .formLogin((formLogin) -> formLogin
-                	.loginPage("/login")
-                	.permitAll()
                 )
+        .formLogin(Customizer.withDefaults())      
+//                .formLogin((formLogin) -> formLogin
+//                	.loginPage("/Login")
+//                	.permitAll()
+//                	.defaultSuccessUrl("/articles")
+//                )
+        .logout(((logout) ->
+ 				logout.invalidateHttpSession(true)
+ 					.logoutUrl("/Accueil")
+ 					.logoutSuccessUrl("/Accueil"))
+        		)		
                 ;
         // @formatter:on
 		return http.build();
@@ -36,10 +44,4 @@ public class SpringSecurityConfig {
 		return NoOpPasswordEncoder.getInstance();
 		//return new BCryptPasswordEncoder()
 	}
-	
-	@Bean
-	public WebSecurityCustomizer webSecurityCustomizer() {
-		return (web) -> web.ignoring().requestMatchers("/static/**");
-	}
-
 }

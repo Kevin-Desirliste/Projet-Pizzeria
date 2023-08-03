@@ -2,9 +2,9 @@ package fr.eni.projetPizza.dal;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import fr.eni.projetPizza.bo.Serveur;
 
-public class ServeurJdbcImpl {
+
+public class UtilisateurJdbcImpl {
 
 //	private JdbcTemplate jdbcTemplate;
 //

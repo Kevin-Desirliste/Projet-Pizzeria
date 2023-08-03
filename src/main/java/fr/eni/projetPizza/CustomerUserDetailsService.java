@@ -9,17 +9,21 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerUserDetailsService implements UserDetailsService{
+	
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if ("user".equals(username)) {
+        if ("pizzaiollo".equals(username)) {
             List<GrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority("ROLE_PIZZAIOLLO"));
-            return new User("Pizzaiollo", "Pizzaiollo", authorities);
-        } else if ("admin".equals(username)) {
+            authorities.add(new SimpleGrantedAuthority("PIZZAIOLLO"));
+            return new User("pizzaiollo", "pizzaiollo", authorities);
+        } else if ("serveur".equals(username)) {
             List<GrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority("ROLE_SERVEUR"));
-            return new User("Serveur", "Serveur", authorities);
+            authorities.add(new SimpleGrantedAuthority("SERVEUR"));
+            return new User("serveur", "serveur", authorities);
         } else {
             throw new UsernameNotFoundException("Utilisateur non trouvé !");
         }
