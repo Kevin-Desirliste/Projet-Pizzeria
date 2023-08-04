@@ -1,8 +1,4 @@
 body {
-    margin: 0;
-}
-
-.cart-container {
     font-family: Arial, sans-serif;
     max-width: 500px;
     margin: 20px auto;
@@ -34,6 +30,10 @@ nav a {
     padding: 10px 20px;
 }
 
+span {
+	font-weight: bold;	
+}
+
 .bouton {
     background-color: #008000;
     color: #fff;
@@ -48,13 +48,15 @@ nav a {
 }
 
 .cart-items {
+	display: list-item;
     list-style: none;
     padding: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
 }
 
 .cart-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+	margin: 10px auto;
 }
 
 .cart-item .pizza-name {

@@ -20,7 +20,7 @@ import fr.eni.projetPizza.dal.ArticleDAO;
 @Controller
 public class PizzaController {
 	
-	private ArticleDAO articleDAO; // Injection du DAO pour accéder aux données de la table "Table"
+	private ArticleDAO articleDAO;
 	private ArticleManager articleManager;
 	
 	@Autowired
@@ -104,10 +104,10 @@ public class PizzaController {
         return "redirect:/Commande";
     }
     
-//    @GetMapping("/Login")
-//    public String Login() {
-//        return "Login.html";
-//    }
+    @GetMapping("/seConnecter")
+    public String Login() {
+        return "login.html";
+    }
 	
     @GetMapping("/Carte")
     public String afficherCarte(Model model) {
@@ -118,12 +118,6 @@ public class PizzaController {
     
     @GetMapping("/Panier")
     public String afficherPanier(Model model) {
-        //List<Article> articles = articleManager.getArticlesInPanier(); // Récupérer les articles depuis le service
-        //double total = articleManager.calculateTotal(); // Calculer le total depuis le service
-
-       // model.addAttribute("articles", articles);
-        //model.addAttribute("total", total);
-        
         return "Panier";
     }
         
